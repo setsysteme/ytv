@@ -17,9 +17,9 @@ let {
  * @returns {link2info}
  */
 async function get_link2info(link) {
-  if(!is_url(link)) {
-      return new URIError("The Link Format is Incorrect!");
-  }
+  // if(!is_url(link)) {
+  //     return new URIError("The Link Format is Incorrect!");
+  // }
 
   return new Promise((resolve, reject) => {
     axios.get(link)
