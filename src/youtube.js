@@ -55,9 +55,9 @@ async function get_link2info(link) {
  * @property {string} video_length - youtube video length
  * @returns {title2info}
  */
-async function get_title2info(title) {
+async function get_title2info(proxy, title) {
   return new Promise((resolve, reject) => {
-    axios.get(SEARCH_LINK + encodeURI(title))
+    axios.get(proxy?proxy+encodeURIComponent(SEARCH_LINK+title):SEARCH_LINK+title)
     .then(res => {
       let json = JSON.parse(res.data.split("ytInitialData = ")[1].split(";</script>")[0]);
       let content = json.contents.twoColumnSearchResultsRenderer.primaryContents.sectionListRenderer.contents[0].itemSectionRenderer.contents;
